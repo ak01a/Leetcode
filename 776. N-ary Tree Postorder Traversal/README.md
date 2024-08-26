@@ -1,10 +1,10 @@
   Consider the following n-ary tree:
 
-       1
-      /|\
-     3 2 4
-    / \
-   5   6
+        1
+       /|\
+      3 2 4
+     / \
+    5   6
 
 The postorder traversal for this tree would be [5, 6, 3, 2, 4, 1].
 Step-by-Step Execution:
