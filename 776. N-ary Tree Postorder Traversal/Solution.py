@@ -6,20 +6,16 @@ class Node:
         self.children = children
 """
 
-class Solution:
+class Solution:  
     def postorder(self, root: 'Node') -> List[int]:
         res =[]
-        if not root:
-            return[]
-        
-        stack = [(root,False)]
+        def helper(node):
+            if not node:
+                return
+            for c in node.children:
+                helper(c)
+            res.append(node.val)
 
-        while stack:
-            node,visited = stack.pop()
-            if visited:
-                res.append(node.val)
-            else:
-                stack.append((node,True))
-                for c in node.children[::-1]:
-                    stack.append((c,False))
+        
+        helper(root)
         return res
