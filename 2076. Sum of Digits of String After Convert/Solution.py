@@ -1,25 +1,15 @@
-class Solution:
-    def getLucky(self, s: str, k: int) -> int:
-        su = 0
-        for ch in s:
-            n = ord(ch)-96
-            if(n>=10):
-                n = str(n)
-                n1 = int(n[0:1])
-                n2 = int(n[1:2])
-                n = n1+n2
-            su += n
-        for i in range(k-1):
-            if(su>=10):
-                j = 0
-                n = 0
-                while(len(str(su))):
-                    if str(su)[j:j+1]!='':
-                        n += int(str(su)[j:j+1])
-                        j+=1
-                    else:
-                        break
-                su = n
-            else:
-                break
-        return su
+class Solution(object):
+    def getLucky(self, s, k):
+        # Convert each character in the string to its corresponding numeric value
+        number = ''
+        for x in s:
+            number += str(ord(x) - ord('a') + 1)
+        
+        # Perform the transformation `k` times
+        while k > 0:
+            temp = 0
+            for x in number:
+                temp += int(x)  # Sum the digits of the current number
+            number = str(temp)  # Convert the sum back to a string
+            k -= 1
+        return int(number)  # Return the final result as an integer
