@@ -1,6 +1,12 @@
 class Solution {
 public:
-    vector<int> replaceElements(vector<int>& arr) {
+    vector<int> replaceElements(vector<int>& arr, int mx = -1) {
+        for(int i = arr.size() - 1;i >= 0;--i)
+            mx = max(mx , exchange(arr[i],mx));
+        return arr;
+
+        //Mine :>
+        /* 
         int n = arr.size();
         vector<int> ans;
         for(int i =0;i<n-1;i++){
@@ -16,5 +22,6 @@ public:
         }
         ans.push_back(-1);
         return ans;
+        */
     }
 };
