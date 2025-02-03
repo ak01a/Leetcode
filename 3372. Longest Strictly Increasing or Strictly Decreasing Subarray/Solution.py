@@ -1,3 +1,9 @@
+"""
+Strategy : Dynamic programming
+T = O(n)
+
+"""
+
 class Solution:
     def longestMonotonicSubarray(self, nums: List[int]) -> int:
         n = len(nums)
