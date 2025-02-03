@@ -1,6 +1,14 @@
 class Solution:
     def check(self, nums: List[int]) -> bool:
         n = len(nums)
+        r = sorted(nums)
+        for start in range(n):
+            if nums[start:] + nums[:start] == r:
+                return True
+        return False
+
+'''         
+        n = len(nums)
         start_index = 0
         for i in range(n-1):
             if nums[i] > nums[i+1]:
@@ -13,3 +21,4 @@ class Solution:
                 return False
               
         return True
+'''
